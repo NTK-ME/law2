@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>นิติลูป เรียนกฎหมายแบบลงมือทำ</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;600;700&display=swap">
+<style>
+*{box-sizing:border-box}
+:root{--bg:#f3f5f9;--card:#fff;--ink:#181c2a;--mute:#5d6478;--line:#dde2ec;--on:#fff;--hl:#ffe566;--c1:#3347d9;--c2:#d1306a;--c3:#0b8a65;--bad:#d4364c;color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#11131b;--card:#1a1d29;--ink:#e9ebf3;--mute:#98a0b5;--line:#2a2f40;--on:#11131b;--hl:#6b5d12;--c1:#8b98ff;--c2:#ff7aa6;--c3:#4fd1a5;--bad:#ff7d8e;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#11131b;--card:#1a1d29;--ink:#e9ebf3;--mute:#98a0b5;--line:#2a2f40;--on:#11131b;--hl:#6b5d12;--c1:#8b98ff;--c2:#ff7aa6;--c3:#4fd1a5;--bad:#ff7d8e;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.7 "IBM Plex Sans Thai","Leelawadee UI",Tahoma,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+main{max-width:620px;margin:0 auto;padding:22px 18px 112px;--c:var(--c1)}
+main[data-t=prac]{--c:var(--c2)}main[data-t=rev]{--c:var(--c3)}main[data-t=stats]{--c:var(--ink)}
+h1{font-size:30px;font-weight:700;margin:0;line-height:1.3}
+h2{font-size:15px;color:var(--mute);font-weight:600;margin:26px 0 6px}
+h3{font-size:17px;font-weight:600;margin:0;line-height:1.5}
+.sub,.note{color:var(--mute);font-size:14px;margin:0}
+mark{background:linear-gradient(transparent 52%,var(--hl) 52%);color:inherit}
+button:focus-visible{outline:2px solid var(--c);outline-offset:2px}
+.row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.loop{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:18px 0 0}
+.loop button{font:inherit;font-size:13px;text-align:left;color:var(--ink);background:var(--card);border:0;border-top:4px solid var(--c);border-radius:4px 4px 16px 4px;padding:10px 12px;cursor:pointer}
+.loop b{display:block;font-size:24px;line-height:1.3;color:var(--c)}
+.sec{display:grid;grid-template-columns:76px 1fr auto;gap:12px;align-items:center;width:100%;text-align:left;font:inherit;color:inherit;background:none;border:0;border-top:1px solid var(--line);padding:14px 0;cursor:pointer}
+.sec>span{display:block}
+.num{font-size:21px;font-weight:700;color:var(--c1);line-height:1.3}
+.num small{display:block;font-size:11px;font-weight:400;color:var(--mute)}
+.h{font-size:17px;font-weight:600;line-height:1.4}
+.det{padding:0 0 18px 88px}
+.det ul{margin:6px 0;padding-left:20px}
+.ex{background:color-mix(in srgb,var(--hl) 35%,var(--card));border-radius:8px;padding:8px 12px;margin:10px 0;font-size:15px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin:12px 0}
+.btn{font:inherit;font-weight:600;background:var(--c);color:var(--on);border:0;border-radius:99px;padding:9px 20px;cursor:pointer}
+.btn.ghost{background:none;color:var(--c);border:1.5px solid var(--c)}
+.opt{display:block;width:100%;text-align:left;font:inherit;color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:11px 14px;margin:8px 0;cursor:pointer}
+.opt.ok{border-color:var(--c3);background:color-mix(in srgb,var(--c3) 13%,var(--card))}
+.opt.bad{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 13%,var(--card))}
+.sc{border-left:4px solid var(--c);padding:2px 0 2px 14px;margin:16px 0;font-size:17px}
+.bar{height:10px;background:var(--line);border-radius:99px;overflow:hidden;margin:6px 0 16px}
+.bar i{display:block;height:100%;background:var(--c)}
+nav{position:fixed;left:0;right:0;bottom:0;display:flex;background:var(--card);border-top:1px solid var(--line);padding:0 4px env(safe-area-inset-bottom,0px)}
+nav button{flex:1;font:inherit;font-size:13px;background:none;border:0;border-top:3px solid transparent;color:var(--mute);padding:12px 0 10px;cursor:pointer}
+nav button.on{color:var(--c);border-top-color:var(--c);font-weight:600}
+nav [data-v=learn]{--c:var(--c1)}nav [data-v=prac]{--c:var(--c2)}nav [data-v=rev]{--c:var(--c3)}nav [data-v=stats]{--c:var(--ink)}
+</style>
+</head>
+<body>
+<main id="m"></main>
+<nav>
+<button data-a="tab" data-v="learn">เรียน</button>
+<button data-a="tab" data-v="prac">ฝึกโจทย์</button>
+<button data-a="tab" data-v="rev">ทบทวน</button>
+<button data-a="tab" data-v="stats">ความก้าวหน้า</button>
+</nav>
+<script>
+const KEY='nitiloop2',$=s=>document.querySelector(s);
+const SEC=[
+{id:'s59',n:'ม.59',c:'ป.อ.',t:'เจตนาและประมาท',g:'อาญา ภาคทั่วไป',sum:'บุคคลรับผิดอาญาก็ต่อเมื่อกระทำ<mark>โดยเจตนา</mark> เว้นแต่กฎหมายให้รับผิดเมื่อประมาท',el:['เจตนา (วรรคสอง): รู้สำนึกในการกระทำ และ<mark>ประสงค์ต่อผล</mark>หรือ<mark>ย่อมเล็งเห็นผล</mark>','ประมาท (วรรคสี่): ไม่มีเจตนา แต่ขาดความระมัดระวังตามวิสัยและพฤติการณ์'],ex:'ยิงเพื่อให้ตาย = ประสงค์ต่อผล ส่วนวางเพลิงบ้านทั้งที่รู้ว่ามีคนนอนอยู่ = ย่อมเล็งเห็นผล',rel:'ม.288, ม.291'},
+{id:'s288',n:'ม.288',c:'ป.อ.',t:'ฆ่าผู้อื่น',g:'อาญา ภาคความผิด',sum:'ความผิดฐาน<mark>ฆ่าผู้อื่น</mark>โดยเจตนา',el:['ภายนอก: ผู้ใด ฆ่า ผู้อื่น','ภายใน: เจตนาฆ่า (ม.59)'],ex:'ถ้าทำให้ตายโดยไม่เจตนาแต่ประมาท จะเป็นความผิดตาม ม.291 แทน',rel:'ม.59, ม.291'},
+{id:'s420',n:'ม.420',c:'ป.พ.พ.',t:'ละเมิด',g:'หนี้ มูลละเมิด',sum:'ผู้ใด<mark>จงใจหรือประมาทเลินเล่อ</mark> ทำต่อบุคคลอื่น<mark>โดยผิดกฎหมาย</mark>ให้เขาเสียหาย ต้องใช้ค่าสินไหมทดแทน',el:['กระทำต่อบุคคลอื่น','จงใจ หรือ ประมาทเลินเล่อ','โดยผิดกฎหมาย','เกิดความเสียหาย','ความเสียหายเกิดจากการกระทำนั้น'],ex:'ขับรถประมาทชนรถผู้อื่นเสียหาย ต้องชดใช้ค่าสินไหมทดแทน',rel:'ม.438, ม.448'}
+];
+const DR=[
+{id:'d1',t:'ขับรถชนรั้ว (ละเมิด ม.420)',sc:'แดงขับรถเร็วเกินกำหนดในซอยแคบ เบรกไม่ทันจึงชนรั้วบ้านของดำพัง',st:[
+{q:'ประเด็นหลักคือข้อใด?',o:['แดงผิดสัญญากับดำหรือไม่','แดงต้องรับผิดฐานละเมิดต่อดำหรือไม่','ดำยึดรถของแดงได้ทันทีหรือไม่'],a:1,e:'ทั้งสองไม่มีสัญญาต่อกัน แต่การกระทำของแดงทำให้ทรัพย์สินของดำเสียหาย จึงต้องดูเรื่องละเมิด'},
+{q:'หลักตาม ม.420 ข้อใดถูก?',o:['ต้องจงใจเท่านั้น ประมาทไม่ต้องรับผิด','จงใจหรือประมาทเลินเล่อ ผิดกฎหมาย และเกิดความเสียหายจากการกระทำนั้น','ต้องมีสัญญาก่อนจึงเรียกค่าเสียหายได้'],a:1,e:'ม.420 ครอบคลุมทั้งจงใจและประมาทเลินเล่อ และไม่ต้องมีสัญญาระหว่างกัน'},
+{q:'ปรับข้อเท็จจริง: ขับเร็วเกินกำหนดในซอยแคบจนเบรกไม่ทัน เป็นอย่างไร?',o:['ประมาทเลินเล่อ เพราะขาดความระมัดระวังที่วิญญูชนพึงมี','ไม่ผิด เพราะเป็นอุบัติเหตุ','จงใจทำให้รั้วเสียหาย'],a:0,e:'ผู้ขับขี่ที่ระมัดระวังพอจะไม่ขับเร็วในที่แคบ จึงถือว่าประมาทเลินเล่อ'}],
+sum:'แดงทำละเมิดต่อดำ ต้องใช้ค่าสินไหมทดแทนตาม ม.420 โดยศาลกำหนดจำนวนตามพฤติการณ์และความร้ายแรงของละเมิด (ม.438)'},
+{id:'d2',t:'วางเพลิงบ้าน (เจตนา ม.59)',sc:'เอวางเพลิงบ้านทั้งที่รู้ว่าบีนอนอยู่ข้างใน เอไม่ได้อยากให้บีตาย แต่รู้ว่าบีย่อมตายแน่ และบีตายจริง',st:[
+{q:'เอมีเจตนาต่อความตายของบีแบบใด?',o:['ประสงค์ต่อผล','ย่อมเล็งเห็นผล','ประมาท','ไม่มีเจตนา'],a:1,e:'เอไม่ได้ต้องการให้ตาย จึงไม่ใช่ประสงค์ต่อผล แต่รู้ว่าผลย่อมเกิด จึงเป็นย่อมเล็งเห็นผล ซึ่งถือเป็นเจตนาตาม ม.59 วรรคสอง'},
+{q:'เอต้องรับผิดต่อความตายของบีฐานใด?',o:['ประมาทเป็นเหตุให้ผู้อื่นตาย (ม.291)','ฆ่าผู้อื่น (ม.288)','ไม่ต้องรับผิด เพราะไม่ได้ตั้งใจ'],a:1,e:'มีเจตนาต่อความตายและบีตายจริง จึงครบองค์ประกอบฆ่าผู้อื่น'}],
+sum:'เอมีเจตนาโดยย่อมเล็งเห็นผล จึงรับผิดฐานฆ่าผู้อื่นตาม ม.288'}
+];
+const FC=[
+{id:'f1',g:'ละเมิด',q:'อายุความละเมิดทั่วไปตาม ม.448 คือเท่าใด?',a:'1 ปีนับแต่วันที่ผู้เสียหายรู้ถึงการละเมิดและรู้ตัวผู้ต้องรับผิด หรือ 10 ปีนับแต่วันทำละเมิด (ถ้าเป็นความผิดอาญาด้วยและอายุความอาญายาวกว่า ใช้อายุความอาญา)'},
+{id:'f2',g:'อายุความ',q:'ถ้ากฎหมายไม่ได้กำหนดอายุความไว้โดยเฉพาะ ใช้กี่ปี?',a:'10 ปี (ป.พ.พ. ม.193/30)'},
+{id:'f3',g:'เจตนา',q:'เจตนาตาม ป.อ. ม.59 วรรคสอง ต้องมีอะไรบ้าง?',a:'รู้สำนึกในการที่กระทำ และประสงค์ต่อผลหรือย่อมเล็งเห็นผลของการกระทำนั้น'},
+{id:'f4',g:'ละเมิด',q:'องค์ประกอบของละเมิดตาม ม.420?',a:'กระทำต่อบุคคลอื่น จงใจหรือประมาทเลินเล่อ โดยผิดกฎหมาย เกิดความเสียหาย และความเสียหายเกิดจากการกระทำนั้น'},
+{id:'f5',g:'ประมาท',q:'ประมาทตาม ป.อ. ม.59 วรรคสี่ คืออะไร?',a:'กระทำโดยไม่มีเจตนา แต่ปราศจากความระมัดระวังที่บุคคลในภาวะเช่นนั้นต้องมีตามวิสัยและพฤติการณ์ และผู้กระทำอาจใช้ความระมัดระวังนั้นได้ แต่ไม่ได้ใช้ให้เพียงพอ'}
+];
+let S={read:{},dr:{},fc:{}};
+try{Object.assign(S,JSON.parse(localStorage.getItem(KEY)||'{}'))}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+const V={tab:'learn',open:null,d:null,step:0,pick:null,score:0,show:false,all:false,sure:false};
+const dv=c=>(S.fc[c.id]||{}).d||0;
+const dueN=()=>FC.filter(c=>dv(c)<=Date.now()).length;
+const queue=()=>(V.all?FC.slice():FC.filter(c=>dv(c)<=Date.now())).sort((a,b)=>dv(a)-dv(b));
+
+function learn(){
+ const r=SEC.filter(s=>S.read[s.id]).length,dn=Object.keys(S.dr).length;
+ return `<h1>นิติลูป</h1><p class="sub">อ่านหลัก ฝึกโจทย์ ทบทวน แล้ววนซ้ำ</p>
+<div class="loop"><button data-a="tab" data-v="learn" style="--c:var(--c1)"><b>${r}/${SEC.length}</b>บทที่อ่านแล้ว</button><button data-a="tab" data-v="prac" style="--c:var(--c2)"><b>${dn}/${DR.length}</b>โจทย์ที่ทำแล้ว</button><button data-a="tab" data-v="rev" style="--c:var(--c3)"><b>${dueN()}</b>ใบรอทบทวน</button></div>
+<h2>บทเรียน</h2>`+SEC.map(s=>{
+  const o=V.open==s.id,rd=S.read[s.id];
+  return `<button class="sec" data-a="open" data-v="${s.id}"><span class="num">${s.n}<small>${s.c}</small></span><span><b class="h">${s.t}</b><span class="note" style="display:block">${s.g}</span></span><span class="note">${rd?'อ่านแล้ว':''}</span></button>`+(o?`<div class="det"><p style="margin:0">${s.sum}</p><ul>${s.el.map(e=>`<li>${e}</li>`).join('')}</ul><div class="ex">${s.ex}</div><p class="note" style="margin-bottom:12px">เชื่อมโยง ${s.rel}</p><button class="btn${rd?' ghost':''}" data-a="read" data-v="${s.id}">${rd?'ยกเลิกเครื่องหมายอ่านแล้ว':'ทำเครื่องหมายว่าอ่านแล้ว'}</button></div>`:'');
+ }).join('');
+}
+function prac(){
+ if(!V.d)return `<h1>ฝึกโจทย์ตุ๊กตา</h1><p class="sub">ตั้งประเด็น ยกหลัก ปรับข้อเท็จจริง แล้วสรุป</p>`+DR.map(d=>{const r=S.dr[d.id];return `<div class="card row"><div><h3>${d.t}</h3>${r?`<div class="note">ล่าสุดตอบถูก ${r.c} จาก ${r.n} ข้อ</div>`:''}</div><button class="btn" data-a="drill" data-v="${d.id}">${r?'ทำอีกครั้ง':'เริ่มทำ'}</button></div>`}).join('');
+ const d=DR.find(x=>x.id==V.d),sc=`<div class="sc">${d.sc}</div>`;
+ if(V.step>=d.st.length)return `<h1>สรุปโจทย์</h1>${sc}<div class="card"><p style="margin:0">${d.sum}</p><p class="note" style="margin-top:8px">ตอบถูก ${V.score} จาก ${d.st.length} ข้อ</p></div><button class="btn" data-a="exit">เลือกโจทย์อื่น</button>`;
+ const s=d.st[V.step],ok=V.pick==s.a;
+ return `<div class="row"><span class="note">ข้อ ${V.step+1} จาก ${d.st.length}</span><button class="btn ghost" data-a="exit">ออก</button></div>${sc}<h3>${s.q}</h3>`+s.o.map((o,i)=>`<button class="opt${V.pick!=null?(i==s.a?' ok':i==V.pick?' bad':''):''}" data-a="pick" data-v="${i}">${o}</button>`).join('')+(V.pick!=null?`<div class="card"><b style="color:${ok?'var(--c3)':'var(--bad)'}">${ok?'ถูกต้อง':'ยังไม่ใช่'}</b><p style="margin:4px 0 0">${s.e}</p></div><button class="btn" data-a="next">${V.step+1<d.st.length?'ข้อต่อไป':'ดูสรุป'}</button>`:'');
+}
+function rev(){
+ const q=queue(),h=`<h1>ทบทวน</h1>`;
+ if(!q.length)return h+`<div class="card"><h3>วันนี้ทบทวนครบแล้ว</h3><p class="note" style="margin:6px 0 12px">การ์ดที่จำได้จะกลับมาตามรอบ อยากฝึกเพิ่มตอนนี้ก็ได้</p><button class="btn" data-a="all">ฝึกการ์ดทั้งหมด</button></div>`;
+ const c=q[0];
+ return h+`<p class="sub">เหลือ ${q.length} ใบ</p><div class="card"><div class="note">${c.g}</div><h3 style="font-size:19px;margin:4px 0">${c.q}</h3>`+(V.show?`<p style="margin:12px 0 0;padding-top:12px;border-top:1px solid var(--line)">${c.a}</p></div><div class="row"><button class="btn ghost" style="flex:1" data-a="rate" data-v="0">ยังไม่ชัวร์</button><button class="btn" style="flex:1" data-a="rate" data-v="1">จำได้</button></div>`:`</div><button class="btn" data-a="show">ดูคำตอบ</button>`);
+}
+function stats(){
+ const r=SEC.filter(s=>S.read[s.id]).length,ds=Object.values(S.dr),c=ds.reduce((x,y)=>x+y.c,0),n=ds.reduce((x,y)=>x+y.n,0),m=FC.filter(f=>((S.fc[f.id]||{}).b||0)>=3).length;
+ const bar=(l,v,t,k)=>`<div class="row"><b>${l}</b><span class="note">${v} จาก ${t}</span></div><div class="bar" style="--c:var(${k})"><i style="width:${t?v/t*100:0}%"></i></div>`;
+ return `<h1>ความก้าวหน้า</h1><div class="card">${bar('บทที่อ่านแล้ว',r,SEC.length,'--c1')}${bar('ข้อที่ตอบถูก (โจทย์ครั้งล่าสุด)',c,n,'--c2')}${bar('การ์ดที่จำได้ขึ้นใจ',m,FC.length,'--c3')}</div><button class="btn ghost" data-a="reset">${V.sure?'แตะอีกครั้งเพื่อยืนยัน':'ล้างข้อมูลทั้งหมด'}</button><p class="note" style="margin-top:18px">เนื้อหาเป็นข้อมูลตัวอย่างเพื่อการเรียน ไม่ใช่คำปรึกษากฎหมาย ควรตรวจกับตัวบทฉบับทางการเสมอ</p>`;
+}
+function render(){
+ const m=$('#m');m.dataset.t=V.tab;
+ m.innerHTML=({learn,prac,rev,stats})[V.tab]();
+ document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.v==V.tab));
+}
+document.addEventListener('click',e=>{
+ const t=e.target.closest('[data-a]');if(!t)return;
+ const a=t.dataset.a,v=t.dataset.v,d=DR.find(x=>x.id==V.d);
+ if(a!='reset')V.sure=false;
+ if(a=='tab'){V.tab=v;V.d=null;V.show=false;V.all=false;scrollTo(0,0)}
+ else if(a=='open')V.open=V.open==v?null:v;
+ else if(a=='read'){S.read[v]=!S.read[v];save()}
+ else if(a=='drill'){V.d=v;V.step=0;V.pick=null;V.score=0;scrollTo(0,0)}
+ else if(a=='exit')V.d=null;
+ else if(a=='pick'){if(V.pick!==null)return;V.pick=+v;if(V.pick==d.st[V.step].a)V.score++}
+ else if(a=='next'){V.step++;V.pick=null;if(V.step>=d.st.length){S.dr[d.id]={c:V.score,n:d.st.length};save()}}
+ else if(a=='show')V.show=true;
+ else if(a=='rate'){const c=queue()[0],b=(S.fc[c.id]||{}).b||0,nb=v=='1'?Math.min(b+1,3):0;S.fc[c.id]={b:nb,d:v=='1'?Date.now()+[0,1,3,7][nb]*864e5:Date.now()};V.show=false;save()}
+ else if(a=='all')V.all=true;
+ else if(a=='reset'){if(V.sure){S.read={};S.dr={};S.fc={};save();V.sure=false}else V.sure=true}
+ render();
+});
+render();
+</script>
+</body>
+</html>
